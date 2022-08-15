@@ -56,6 +56,8 @@ const char* ntpServer = "pool.ntp.org";
 #define BTN 16
 #define LED1 17
 #define LED2 18
+#define LED3 19
+
 #include "MAX30100_PulseOximeter.h"
 #define REPORTING_PERIOD_MS 1000
 #define LO2 25
