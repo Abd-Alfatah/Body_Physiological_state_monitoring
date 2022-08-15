@@ -1,0 +1,5 @@
+{
+    "configuration": "PartitionScheme=default,FlashFreq=80,UploadSpeed=921600,DebugLevel=none",
+    "board": "esp32:esp32:node32s",
+    "sketch": "sketch_aug06a.ino"
+}
