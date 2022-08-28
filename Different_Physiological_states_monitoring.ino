@@ -298,4 +298,4 @@ void loop() {
   
   */
 }
-/* I have comment all the serial printing for testing you have to uncomment all of them*/
+/* I have commented all the serial printing for testing purpose you have to uncomment all of them*/
