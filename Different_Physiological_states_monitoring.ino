@@ -8,10 +8,10 @@
 #include <addons/TokenHelper.h>
 SHT21 sht;
 bool ECGisON = false;
-// Insert Firebase project API Key
+// Firebase project API Key
 #define API_KEY "AIzaSyAv4xg6FeU-n1PCmfqLy91l6q3q3l3MMw4"
 
-//Insert the host and authentication fot the realtime database
+//Host and authentication foR the realtime database
 #define FIREBASE_HOST "dailyroutineplanner-1645e-default-rtdb.firebaseio.com"
 #define FIREBASE_AUTH "HTuTh5Rf2L26riiKdepNbRH3tUfHSt3ILgkpIKti"
 
@@ -46,15 +46,15 @@ FirebaseJson json;
 
 const char* ntpServer = "pool.ntp.org";
 
-/**************************************************************************/
+/***************************************************************************/
 #define BTN 16
 #define LED1 17
 #define LED2 18
 #define LED3 19
 #define LED4 4
-
-#include "MAX30100_PulseOximeter.h"
 #define REPORTING_PERIOD_MS 1000
+/**************************************************************************/
+#include "MAX30100_PulseOximeter.h"
 PulseOximeter pox;
 uint32_t tsLastReport = 0;
 float temp;
@@ -64,10 +64,10 @@ uint16_t delayingTime1 = 750;
 uint16_t timeRunning = 0;
 unsigned long sendDataPrevMillis = 0;
 unsigned long timerDelay = 5000;
- String firetemp=String("");
- String fireOxi =String("");
- String fireheart=String("");
- String firehum=String("");
+String firetemp=String("");
+String fireOxi =String("");
+String fireheart=String("");
+String firehum=String("");
 
 void onBeatDetected()
 {
@@ -84,6 +84,7 @@ unsigned long getTime() {
   return now;
 }
 void temp_and_humi() {
+  if (millis() - timeRunning > 85){
   temp = sht.getTemperature();  // get temp from SHT
   humidity = sht.getHumidity(); // get temp from SHT
   Serial.print("Temp: ");      // printing the readings to the serial output
@@ -92,6 +93,7 @@ void temp_and_humi() {
   Serial.println(humidity);
   firetemp = String(temp) + String("°C");
   firehum = String(humidity) + String("%");
+  }
   pox.update();
 }
 
@@ -131,12 +133,13 @@ void connect_to_Wifi() {
 
     if(!res) {
         Serial.println("Failed to connect");
-        // ESP.restart();
+        // ESP.restart(); //This can be used in case we want to restart the device each time the connection failed
     } 
     else {
-        //if you get here you have connected to the WiFi    
+        //here it means that we are connected to the WiFi    
         Serial.println("connected...yeey :)");
-        digitalWrite( LED2, !digitalRead(LED2));
+        digitalWrite( LED2, !digitalRead(LED2));//this LED  will tell us whehter the device is connected to wifi or not
+        //if the LED is ON then it is connected  
     }
 }
 
