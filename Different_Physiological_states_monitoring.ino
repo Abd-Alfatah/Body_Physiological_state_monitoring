@@ -1,4 +1,4 @@
-/*IOT project:: This code a part of big project in which data being measured is sent to an outer website
+/*IOT project:: This code is a part of big project in which data being measured is sent to an outer website
 designed by the other coworkers*/
 /*Project_Name:: Daily routine planner*/
 /*Author:: Abd-Alfatah Alodainy*/
