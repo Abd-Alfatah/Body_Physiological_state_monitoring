@@ -293,7 +293,7 @@ void Task2code( void * pvParameters ){
 
 
 void loop() {
-  /* Here should be empty because we used the dula core of the ESP32 in the setup
+  /* Here should be empty because we used the dual core feature of the ESP32 in the setup
   and there is not any need for further code here
   
   */
